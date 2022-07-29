@@ -1,10 +1,20 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 
-const WithSomeLogic = (Component) => {
-//Do something...
-
+const WithSomeLogic = (Component, params) => {
+  
+  /* useEffect(() => {
+    console.log("Investigar");
+  }, 
+  []
+  ); No corrio dijo que iba a investigar que paso.*/
+  
   return (props) => {
-    return <Component {...props} />;     
+    const onClick = () => {
+      console.log(`Click desde HOC, llamado desde el componente ${params.componentName}`);
+      props.onClick();
+    };
+
+    return <Component {...props} onClick={onClick}/>;     
   };
 };
 

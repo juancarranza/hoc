@@ -1,14 +1,10 @@
 import React from 'react';
+import WithSomeLogics from './WithSomeLogic';
 
 const Text = ({onClick}) => {
-    const onButtonClick = () => {
-        console.log("Log desde el componente");
-        onClick();
-    };
-
     return (
-        <div onClick={onButtonClick}>Text</div>
+        <div onClick={onClick}>Text</div>
     );
 };
 
-export default Text;
+export default WithSomeLogics(Text, {componentName:"Text"});
